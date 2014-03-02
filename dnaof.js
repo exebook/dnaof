@@ -7,7 +7,7 @@ kindof = function(K) {
 dnaof = function(x, f) {
 	var p = x.__proto__
 	x.__proto__ = p.__proto__
-	var r = p.__proto__[f].apply(x)
+	var r = p.__proto__[f].apply(x, [].slice.apply(arguments).slice(2))
 	x.__proto__ = p
 	return r
 }

@@ -1,8 +1,8 @@
 {
   "main": "./dnaof.js",
   "name": "dnaof",
-  "description": "dnaof ======",
-  "version": "0.0.0",
+  "description": "kindof(), .can., dnaof() - inheritance made easy",
+  "version": "0.0.2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,10 +15,16 @@
     "inheritance",
     "class"
   ],
-  "author": "Yakov Nivin",
+  "author": {
+    "name": "Yakov Nivin"
+  },
   "license": "Public domain(unlicense)",
   "bugs": {
     "url": "https://github.com/exebook/dnaof/issues"
   },
-  "homepage": "https://github.com/exebook/dnaof"
+  "homepage": "https://github.com/exebook/dnaof",
+  "readme": "dnaof\n======\n\nkindof(), .can., dnaof() - inheritance made easy\n\nEver struggled with prototype inheritance? Ever wandered why examples of inheritance do not show inheritance deeper than one level? Want it quick, easy and painless?\n\n`kindof()` -- creates a new kind (you might want to call it a class or a type)\n\n`.can.` -- assign a new ability to a kind (method, function)\n\n`dnaof()` -- call the ancestor method (aka the inherited or super)\n\n======\n\n### EXAMPLE\n\nDemonstrate creation of kinds, creating and calling both overloaded and not overloaded methods.\n\n### OUTPUT\n\n```text\nbob can chat\nalice can chat, alice can talk\ncandy can chat, candy can talk, candy can discuss\nbzzzz.z.z.z... (alice)\nbzzzz.z.z.z... (bob)\nbzzzz.z.z.z... (candy)\n```\n\n### CODE\n\n```javascript\nrequire('./dnaof')\n\n// Create a kind of an idiot without an ancestor:\n\nvar idiot = kindof()\n\n// Tell what it can do:\n\nidiot.can.say = function() { return this.name + ' can chat' }\nidiot.can.rest = function() { console.log('bzzzz.z.z.z... (' + this.name + ')') }\n\n// New kind of smart inherits from a kind of idiot\n\nvar smart = kindof(idiot)\n\n// He can also say something:\n\nsmart.can.say = function() {\n\t// He can say something new, and he can\n\t//    say the same thing that an idiot can:\n\treturn dnaof(this, 'say') + ', ' + this.name + ' can talk'\n}\n\n// A kind of genious can do the same things as\n//    an idiot and smart can, and even more:\n\nvar genious = kindof(smart)\ngenious.can.say = function() {\n\treturn dnaof(this, 'say') + ', ' + this.name + ' can discuss'\n}\n\n// instantiate three persons:\n\nvar bob = new idiot\nvar alice = new smart\nvar candy = new genious\n\n// Assign properties, because to make life simpler\n//    we do not initialize anything during creation\n//    yes, we separate creation from feeding and teaching:\n\nbob.name = 'bob'\nalice.name = 'alice'\ncandy.name = 'candy'\n\n// Let them talk:\n\nconsole.log(bob.say())\nconsole.log(alice.say())\nconsole.log(candy.say())\n\n// Let them take some rest:\n\nalice.rest(), bob.rest(), candy.rest()\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "dnaof@0.0.1",
+  "_from": "dnaof@"
 }
