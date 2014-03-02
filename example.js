@@ -48,6 +48,4 @@ console.log(candy.say())
 
 // let them take some rest:
 
-alice.rest()
-bob.rest()
-candy.rest()
+alice.rest(), bob.rest(), candy.rest()
