@@ -1,7 +1,7 @@
-kindof
+dnaof
 ======
 
-kindof, can, dnaof - inheritance made easy
+kindof(), .can., dnaof() - inheritance made easy
 
 Ever struggled with prototype inheritance? Ever wandered why examples of inheritance do not show inheritance deeper than one level? Want it quick, easy and painless?
 
@@ -31,7 +31,7 @@ bzzzz.z.z.z... (candy)
 ### CODE
 
 ```javascript
-require('./kindof')
+require('./dnaof')
 
 // Create a kind of an idiot without an ancestor:
 
