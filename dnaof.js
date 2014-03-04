@@ -21,6 +21,6 @@ kindof = function(Y) {
 }
 
 dnaof = function(x) {
-	return dnaof.caller.dna.apply(x, [].slice.apply(arguments).slice(2))
+	return dnaof.caller.dna.apply(x, [].slice.apply(arguments).slice(1))
 }
 
