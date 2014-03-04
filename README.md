@@ -33,56 +33,50 @@ bzzzz.z.z.z... (candy)
 ```javascript
 require('./dnaof')
 
-// Create a kind of an idiot without an ancestor:
+// create a kind of idiot without ancestor:
 
 var idiot = kindof()
-
-// Tell what it can do:
+// tell what it can do:
 
 idiot.can.say = function() { return this.name + ' can chat' }
 idiot.can.rest = function() { console.log('bzzzz.z.z.z... (' + this.name + ')') }
 
-// New kind of smart inherits from a kind of idiot
+// a new kind of smart inherits from a kind of idiot
 
 var smart = kindof(idiot)
 
-// He can also say something:
+// he can also say something:
 
 smart.can.say = function() {
-	// He can say something new, and he can
-	//    say the same thing that an idiot can:
-	return dnaof(this, 'say') + ', ' + this.name + ' can talk'
+	// he can say something new, and he can say the same thing as an idiot can:
+	return dnaof(this) + ' and talk'
 }
 
-// A kind of genious can do the same things as
-//    an idiot and smart can, and even more:
+// a kind of a genious can do the same things as an idiot and smart can, and even more:
 
 var genious = kindof(smart)
+genious.can.init = function(name) { this.name = name }
 genious.can.say = function() {
-	return dnaof(this, 'say') + ', ' + this.name + ' can discuss'
+	return dnaof(this) + ' and even discuss'
 }
 
-// instantiate three persons:
+// you must use .create(), not "new"
 
-var bob = new idiot
-var alice = new smart
-var candy = new genious
+var alice = idiot.create()
+var betty = smart.create()
+var carol = genious.create('Carol')
 
-// Assign properties, because to make life simpler
-//    we do not initialize anything during creation
-//    yes, we separate creation from feeding and teaching:
+alice.name = 'Alice'
+betty.name = 'Betty'
 
-bob.name = 'bob'
-alice.name = 'alice'
-candy.name = 'candy'
+// let them talk:
 
-// Let them talk:
-
-console.log(bob.say())
 console.log(alice.say())
-console.log(candy.say())
+console.log(betty.say())
+console.log(carol.say())
 
-// Let them take some rest:
+// let them take some rest:
 
-alice.rest(), bob.rest(), candy.rest()
+alice.rest(), betty.rest(), carol.rest()
+
 ```
