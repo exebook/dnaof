@@ -1,10 +1,8 @@
-
-require('./kindof')
+require('./dnaof')
 
 // create a kind of idiot without ancestor:
 
 var idiot = kindof()
-
 // tell what it can do:
 
 idiot.can.say = function() { return this.name + ' can chat' }
@@ -18,34 +16,32 @@ var smart = kindof(idiot)
 
 smart.can.say = function() {
 	// he can say something new, and he can say the same thing as an idiot can:
-	return dnaof(this, 'say') + ', ' + this.name + ' can talk'
+	return dnaof(this) + ' and talk'
 }
 
 // a kind of a genious can do the same things as an idiot and smart can, and even more:
 
 var genious = kindof(smart)
+genious.can.init = function(name) { this.name = name }
 genious.can.say = function() {
-	return dnaof(this, 'say') + ', ' + this.name + ' can discuss'
+	return dnaof(this) + ' and even discuss'
 }
 
 // instantiate three persons:
 
-var bob = new idiot
-var alice = new smart
-var candy = new genious
+var alice = idiot.create()
+var betty = smart.create()
+var carol = genious.create('Carol')
 
-// assign properties, because to make life simpler we do not initialize anything during creation:
-
-bob.name = 'bob'
-alice.name = 'alice'
-candy.name = 'candy'
+alice.name = 'Alice'
+betty.name = 'Betty'
 
 // let them talk:
 
-console.log(bob.say())
 console.log(alice.say())
-console.log(candy.say())
+console.log(betty.say())
+console.log(carol.say())
 
 // let them take some rest:
 
-alice.rest(), bob.rest(), candy.rest()
+alice.rest(), betty.rest(), carol.rest()

@@ -1,8 +1,8 @@
 {
   "main": "./dnaof.js",
   "name": "dnaof",
-  "description": "kindof(), .can., dnaof() - inheritance made easy",
-  "version": "0.0.2",
+  "description": "kindof(), .can., dnaof(), .create() - inheritance made easy",
+  "version": "0.0.4",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
