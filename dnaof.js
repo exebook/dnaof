@@ -1,5 +1,7 @@
 kindof = function(Y) {
-	function X () {}
+	var key = {}
+	var e = '"dnaof" kinds must be instantiated with .create()'
+	function X (pass) { if (pass != key) throw e }
 	if (Y != undefined) Y.close(), X.prototype = new Y
 	X.can = []
 	X.close = function() {
@@ -13,9 +15,14 @@ kindof = function(Y) {
 	}
 	X.create = function() {
 		this.close()
-		var $ = new this
+		var $ = new this(key)
 		if ($.init != undefined) $.init.apply($, arguments)
 		return $
+	}
+	X.prototype.inherit = function(f, newf) { // this allows to inherit on instances
+		var tmp = this[f]
+		this[f] = newf
+		this[f].dna = tmp
 	}
 	return X
 }

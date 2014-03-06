@@ -2,7 +2,7 @@
   "main": "./dnaof.js",
   "name": "dnaof",
   "description": "kindof(), .can., dnaof(), .create() - inheritance made easy",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
