@@ -27,11 +27,14 @@ genious.can.say = function() {
 	return dnaof(this) + ' and even discuss'
 }
 
+var boss = kindof(genious)
+
 // instantiate three persons:
 
 var alice = idiot.create()
 var betty = smart.create()
 var carol = genious.create('Carol')
+var diana = boss.create('Diana')
 
 alice.name = 'Alice'
 betty.name = 'Betty'
@@ -41,7 +44,10 @@ betty.name = 'Betty'
 console.log(alice.say())
 console.log(betty.say())
 console.log(carol.say())
+console.log(diana.say())
 
 // let them take some rest:
 
-alice.rest(), betty.rest(), carol.rest()
+alice.rest(), betty.rest(), carol.rest(), diana.say()
+
+var eden = new genious // error, must use genious.create() instead

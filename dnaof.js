@@ -1,9 +1,10 @@
 kindof = function(Y) {
 	var key = {}
 	var e = '"dnaof" kinds must be instantiated with .create()'
-	function X (pass) { if (pass != key);
-		//asd.asdas()
-	//throw e
+	function X (pass) {
+		//console.log(X.caller == kindof)
+		if ((X.caller != kindof) && (pass != key)) 
+		error.kindof.must.be.instantiated.with.create()
 	}
 	if (Y != undefined) Y.close(), X.prototype = new Y//Y.create()
 	X.can = []
