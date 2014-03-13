@@ -1,4 +1,4 @@
-kindof = function(Y) {
+kindof = function(Y, init) {
 	var key = {}
 	var e = '"dnaof" kinds must be instantiated with .create()'
 	function X (pass) {
@@ -8,6 +8,7 @@ kindof = function(Y) {
 	}
 	if (Y != undefined) Y.close(), X.prototype = new Y//Y.create()
 	X.can = []
+	if (init != undefined) X.can.init = init
 	X.close = function() {
 		if (this.closed === true) return
 		this.closed = true
