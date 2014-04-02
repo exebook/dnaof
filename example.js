@@ -24,7 +24,8 @@ smart.can.say = function() {
 var genious = kindof(smart)
 genious.can.init = function(name) { this.name = name }
 genious.can.say = function() {
-	return dnaof(this) + ' and even discuss'
+	return this.dna() + ' and even discuss'
+	//new untested way of calling DNA
 }
 
 var boss = kindof(genious)

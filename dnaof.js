@@ -4,7 +4,7 @@ kindof = function(Y, init) {
 	function X (pass) {
 		//console.log(X.caller == kindof)
 		if ((X.caller != kindof) && (pass != key)) 
-		error.kindof.must.be.instantiated.with.create()
+		error_kindof_must_be_instantiated_with_create.error()
 	}
 	if (Y != undefined) Y.close(), X.prototype = new Y//Y.create()
 	X.can = []
@@ -33,10 +33,14 @@ kindof = function(Y, init) {
 		this[f] = newf
 		this[f].dna = tmp
 	}
+	X.prototype.dna = function() {
+		return this.dna.caller.dna.apply(this, [].slice.apply(arguments).slice(1))
+	}
 	return X
 }
 
 dnaof = function(x) {
-	return dnaof.caller.dna.apply(x, [].slice.apply(arguments).slice(1))
+	var ret = dnaof.caller.dna.apply(x, [].slice.apply(arguments).slice(1))
+	return ret
 }
 
