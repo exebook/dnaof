@@ -34,7 +34,7 @@ kindof = function(Y, init) {
 		this[f].dna = tmp
 	}
 	X.prototype.dna = function() {
-		return this.dna.caller.dna.apply(this, [].slice.apply(arguments).slice(1))
+		return this.dna.caller.dna.apply(this, [].slice.apply(arguments))
 	}
 	return X
 }
